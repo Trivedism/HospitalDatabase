@@ -14,4 +14,4 @@ huhu72
 The content is split into a pdf document and one sample data document,
 
 The pdf contains the problem statement, included tables, queries, functional dependencies, and entity-relationship diagram
-The excel files contain sample data for the tables mentioned in the pdf
+The excel file contains sample data for the tables mentioned in the pdf
