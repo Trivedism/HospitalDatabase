@@ -1,6 +1,17 @@
 # 508-summer-2020-project
-Repository for semester project for CMSC 508, Summer 2020
+Repository for semester project for CMSC 508, Summer 2020 Team number 10
 
-<Edit this file to include both team member's name, VCU email address, and GitHub username>
+Team members inlcude:
 
-<Provide a brief description of the structure of your repository. It is recommended that you organize your repository into separate areas for documentation, design diagrams, SQL scripts, etc.>
+Saumya Trivedi
+trivedism@mymail.vcu.edu
+Trivedism
+
+Spencer Kinsey-korzym
+kinseykorzysh@mymail.vcu.edu
+huhu72
+
+The content is split into a pdf document and one sample data document,
+
+The pdf contains the problem statement, included tables, queries, functional dependencies, and entity-relationship diagram
+The excel files contain sample data for the tables mentioned in the pdf
