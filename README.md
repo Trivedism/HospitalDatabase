@@ -7,7 +7,7 @@ Saumya Trivedi
 trivedism@mymail.vcu.edu
 Trivedism
 
-Spencer Kinsey-korzym
+Spencer Kinsey-Korzym
 kinseykorzysh@mymail.vcu.edu
 huhu72
 
