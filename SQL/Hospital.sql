@@ -568,7 +568,7 @@ VALUES
 INSERT INTO Patients(First_name, Last_name, Patient_id, Department, Blood_type, Sex, Age, Weight, Medical_condition, Current_Hospital, Previous_Hospital, Admission_date, Discharge_date, Doctor_id, Nurse_id)
 VALUES
 (
-'Malik', 'Frazier', 16750213451, 'Maternity Ward', 'O-', 'F', 74, 339, 'Biabetes', 'Sentara Norfolk General Hospital', 'Centra Lynchburg General Hospital', '08-26-19', '', 53603011799, 16850823158
+'Malik', 'Frazier', 16750213451, 'Maternity Ward', 'O-', 'F', 74, 339, 'Diabetes', 'Sentara Norfolk General Hospital', 'Centra Lynchburg General Hospital', '08-26-19', '', 53603011799, 16850823158
 );
 
 /* INSERT QUERY NO: 12 */
@@ -771,4 +771,43 @@ VALUES
 (
 2533603199, 16441008851, 'Isaac', 'Perkins', '900-222-7896', 'Family'
 );
+
+SELECT * FROM Departments;
+SELECT * FROM Hospitals;
+SELECT * FROM Hospital_Personal;
+SELECT * FROM Doctors;
+SELECT * FROM Patients;
+SELECT * FROM Emergency_Contacts;
+
+
+/* QUERY 10 */
+SELECT Admission_date FROM Patients WHERE
+Patients.Patient_ID = 16320519771 and Patients.Current_hospital = 'Virginia Hospital Center';
+
+/* QUERY 11 */
+SELECT DISTINCT Current_hospital FROM Patients WHERE Patients.Age > 65 && Current_hospital != '';
+
+/* QUERY 12 */
+SELECT (start_date) FROM Doctors WHERE Doctor_id = '82972840099' AND Doctors.Department = 'Cardiology' AND Doctors.Current_hospital = 'Inova Fairfax Hospital';
+
+/* QUERY 13 */
+SELECT Doctor_id FROM Patients WHERE Patients.Patient_ID = 16191205791 AND Patients.Current_hospital = 'VCU Medical Center';
+
+/* QUERY 14 */
+SELECT COUNT(*) FROM Patients WHERE Patients.Department = 'ICU' AND Patients.Current_hospital = 'Sentara Norfolk General Hospital'
+
+/* QUERY 15 */
+SELECT Patient_ID, Admission_date, Discharge_date FROM Patients WHERE Patients.Doctor_id = 48376903992
+
+/* QUERY 16 */
+SELECT Relation FROM Emergency_Contacts WHERE Emergency_Contacts.Patient_ID = 16850326681;
+
+/* QUERY 17 */
+SELECT age FROM Patients WHERE Patients.Weight > 200 AND Patients.Current_hospital = 'Mary Washington Hospital';
+
+/* QUERY 19 */
+SELECT Doctors.Doctor_id, count(*) FROM Doctors INNER JOIN Patients WHERE Doctors.Doctor_id = Patients.Doctor_id AND Doctors.Department = 'ICU' GROUP BY Doctors.Doctor_id HAVING COUNT(*) > 3
+
+/* QUERY 20 */
+SELECT * FROM Doctors,Hospitals WHERE Hospitals.Hospital_name = Doctors.Current_hospital AND Hospitals.City = 'Richmond';
 
