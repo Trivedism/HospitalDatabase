@@ -4,59 +4,83 @@ CREATE DATABASE Hospital;
 
 USE Hospital;
 
-DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS Departments;
 
-CREATE TABLE departments
+CREATE TABLE Departments
   (
-     department_name VARCHAR(25) NOT NULL,
-     PRIMARY KEY (department_name)
+     Department_name VARCHAR(25) NOT NULL,
+     PRIMARY KEY (Department_name)
   );
 
 /* INSERT QUERY NO: 1 */
-INSERT INTO departments
-            (department_name)
-VALUES      ('Emergency'),
-            ('Cardiology'),
-            ('ICU'),
-            ('Neurology'),
-            ('Oncology'),
-            ('Maternity Ward'),
-            ('Surgery');
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'Emergency' );
 
-DROP TABLE IF EXISTS hospitals;
+/* INSERT QUERY NO: 2 */
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'Cardiology' );
 
-CREATE TABLE hospitals
+/* INSERT QUERY NO: 3 */
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'ICU' );
+
+/* INSERT QUERY NO: 4 */
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'Neurology' );
+
+/* INSERT QUERY NO: 5 */
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'Oncology' );
+
+/* INSERT QUERY NO: 6 */
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'Maternity Ward' );
+
+/* INSERT QUERY NO: 7 */
+INSERT INTO Departments
+            (Department_Name)
+VALUES      ( 'Surgery' );
+
+DROP TABLE IF EXISTS Hospitals;
+
+CREATE TABLE Hospitals
   (
-     hospital_name  VARCHAR(50) NOT NULL,
-     address        VARCHAR(50),
-     city           VARCHAR(20),
-     available_beds INT,
-     available_ors  INT,
-     a_pos          INT,
-     a_neg          INT,
-     b_pos          INT,
-     b_neg          INT,
-     ab_pos         INT,
-     ab_neg         INT,
-     o_pos          INT,
-     o_neg          INT,
-     PRIMARY KEY (hospital_name)
+     Hospital_name  VARCHAR(50) NOT NULL,
+     Address        VARCHAR(50),
+     City           VARCHAR(20),
+     Available_beds INT,
+     Available_ORs  INT,
+     A_Pos          INT,
+     A_Neg          INT,
+     B_Pos          INT,
+     B_Neg          INT,
+     AB_Pos         INT,
+     AB_Neg         INT,
+     O_Pos          INT,
+     O_Neg          INT,
+     PRIMARY KEY (Hospital_name)
   );
 
-INSERT INTO hospitals
-            (hospital_name,
-             address,
-             city,
-             available_beds,
-             available_ors,
-             a_pos,
-             a_neg,
-             b_pos,
-             b_neg,
-             ab_pos,
-             ab_neg,
-             o_pos,
-             o_neg)
+INSERT INTO Hospitals
+            (Hospital_name,
+             Address,
+             City,
+             Available_beds,
+             Available_ORs,
+             A_Pos,
+             A_Neg,
+             B_Pos,
+             B_Neg,
+             AB_Pos,
+             AB_Neg,
+             O_Pos,
+             O_Neg)
 VALUES      ( 'Carilion Roanoke Memorial Hospital',
               '1906 Belleview Ave SE',
               'Roanoke VA',
@@ -201,29 +225,29 @@ VALUES      ( 'Carilion Roanoke Memorial Hospital',
               16,
               24 );
 
-DROP TABLE IF EXISTS doctors;
+DROP TABLE IF EXISTS Doctors;
 
-CREATE TABLE doctors
+CREATE TABLE Doctors
   (
-     doctor_id        VARCHAR(25) NOT NULL,
-     first_name       VARCHAR(25),
-     last_name        VARCHAR(25),
-     department       VARCHAR(25),
-     current_hospital VARCHAR(50),
-     start_date       DATE,
-     PRIMARY KEY (doctor_id),
-     FOREIGN KEY (department) REFERENCES departments (department_name),
-     FOREIGN KEY (current_hospital) REFERENCES hospitals (hospital_name)
+     Doctor_id        VARCHAR(25) NOT NULL,
+     First_name       VARCHAR(25),
+     Last_name        VARCHAR(25),
+     Department       VARCHAR(25),
+     Current_hospital VARCHAR(50),
+     Start_date       DATE,
+     PRIMARY KEY (Doctor_id),
+     FOREIGN KEY (Department) REFERENCES Departments (Department_name),
+     FOREIGN KEY (Current_hospital) REFERENCES Hospitals (Hospital_name)
   );
 
 /* INSERT QUERY NO: 1 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 81702877399,
               'Prescott',
               'Sykes',
@@ -232,13 +256,13 @@ VALUES      ( 81702877399,
               '2004-10-01' );
 
 /* INSERT QUERY NO: 2 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 86394604599,
               'Ashton',
               'Drake',
@@ -247,13 +271,13 @@ VALUES      ( 86394604599,
               '2019-05-18' );
 
 /* INSERT QUERY NO: 3 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 36483323999,
               'Avye',
               'Mason',
@@ -262,13 +286,13 @@ VALUES      ( 36483323999,
               '2008-08-25' );
 
 /* INSERT QUERY NO: 4 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 42852543899,
               'Bethany',
               'Shaw',
@@ -277,13 +301,13 @@ VALUES      ( 42852543899,
               '2010-01-02' );
 
 /* INSERT QUERY NO: 5 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 82699511599,
               'Ariel',
               'Gilliam',
@@ -292,13 +316,13 @@ VALUES      ( 82699511599,
               '2007-07-17' );
 
 /* INSERT QUERY NO: 6 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 71325056799,
               'Macon',
               'Barron',
@@ -307,13 +331,13 @@ VALUES      ( 71325056799,
               '2013-06-04' );
 
 /* INSERT QUERY NO: 7 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 83861616199,
               'Shannon',
               'Thornton',
@@ -322,13 +346,13 @@ VALUES      ( 83861616199,
               '2001-08-23' );
 
 /* INSERT QUERY NO: 8 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 82972840099,
               'Lewis',
               'Britt',
@@ -337,13 +361,13 @@ VALUES      ( 82972840099,
               '2015-08-02' );
 
 /* INSERT QUERY NO: 9 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 53307248299,
               'Margaret',
               'Bowen',
@@ -352,13 +376,13 @@ VALUES      ( 53307248299,
               '2010-09-14' );
 
 /* INSERT QUERY NO: 10 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 82875497299,
               'Alexandra',
               'Gillespie',
@@ -367,13 +391,13 @@ VALUES      ( 82875497299,
               '2006-08-20' );
 
 /* INSERT QUERY NO: 11 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 39629219199,
               'Gage',
               'Hickman',
@@ -382,13 +406,13 @@ VALUES      ( 39629219199,
               '2001-05-16' );
 
 /* INSERT QUERY NO: 12 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 57661613899,
               'Magee',
               'Valentine',
@@ -397,13 +421,13 @@ VALUES      ( 57661613899,
               '2019-10-24' );
 
 /* INSERT QUERY NO: 13 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 20328101299,
               'Simon',
               'Morse',
@@ -412,13 +436,13 @@ VALUES      ( 20328101299,
               '2006-05-01' );
 
 /* INSERT QUERY NO: 14 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 29948424099,
               'Kendall',
               'Hernandez',
@@ -427,13 +451,13 @@ VALUES      ( 29948424099,
               '2001-05-18' );
 
 /* INSERT QUERY NO: 15 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 51283341999,
               'Anjolie',
               'Garrison',
@@ -442,13 +466,13 @@ VALUES      ( 51283341999,
               '2006-04-01' );
 
 /* INSERT QUERY NO: 16 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 46899271499,
               'Rana',
               'Mcknight',
@@ -457,13 +481,13 @@ VALUES      ( 46899271499,
               '2005-03-03' );
 
 /* INSERT QUERY NO: 17 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 30998898799,
               'Rafael',
               'Tate',
@@ -472,13 +496,13 @@ VALUES      ( 30998898799,
               '2004-11-09' );
 
 /* INSERT QUERY NO: 18 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 84882774399,
               'Nina',
               'Lynn',
@@ -487,13 +511,13 @@ VALUES      ( 84882774399,
               '2016-03-14' );
 
 /* INSERT QUERY NO: 19 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 87364724599,
               'Kiara',
               'Hull',
@@ -502,13 +526,13 @@ VALUES      ( 87364724599,
               '2002-06-13' );
 
 /* INSERT QUERY NO: 20 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 89621657699,
               'Barron',
               'Ryder',
@@ -517,13 +541,13 @@ VALUES      ( 89621657699,
               '2001-01-21' );
 
 /* INSERT QUERY NO: 21 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 13454996899,
               'Parker',
               'William',
@@ -532,13 +556,13 @@ VALUES      ( 13454996899,
               '2001-09-08' );
 
 /* INSERT QUERY NO: 22 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 77299698399,
               'Klein',
               'Asher',
@@ -547,13 +571,13 @@ VALUES      ( 77299698399,
               '2009-06-14' );
 
 /* INSERT QUERY NO: 23 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 16349967799,
               'Knox',
               'Lee',
@@ -562,13 +586,13 @@ VALUES      ( 16349967799,
               '2013-07-25' );
 
 /* INSERT QUERY NO: 24 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 16361770999,
               'Knowles',
               'Addison',
@@ -577,13 +601,13 @@ VALUES      ( 16361770999,
               '2002-04-08' );
 
 /* INSERT QUERY NO: 25 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 90333758299,
               'Williams',
               'Hammett',
@@ -592,13 +616,13 @@ VALUES      ( 90333758299,
               '2002-06-07' );
 
 /* INSERT QUERY NO: 26 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 19368898299,
               'Lynch',
               'Amal',
@@ -607,13 +631,13 @@ VALUES      ( 19368898299,
               '2007-04-26' );
 
 /* INSERT QUERY NO: 27 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 25237612599,
               'Ramos',
               'Lester',
@@ -622,13 +646,13 @@ VALUES      ( 25237612599,
               '2009-11-06' );
 
 /* INSERT QUERY NO: 28 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 53857915099,
               'Rivera',
               'Kelly',
@@ -637,13 +661,13 @@ VALUES      ( 53857915099,
               '2017-01-26' );
 
 /* INSERT QUERY NO: 29 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 53603011799,
               'Frederick',
               'Jasper',
@@ -652,13 +676,13 @@ VALUES      ( 53603011799,
               '2000-07-20' );
 
 /* INSERT QUERY NO: 30 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 61955754399,
               'Macdonald',
               'Tiger',
@@ -667,13 +691,13 @@ VALUES      ( 61955754399,
               '2017-12-28' );
 
 /* INSERT QUERY NO: 31 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 48376903992,
               'Stewart',
               'Josiah',
@@ -682,13 +706,13 @@ VALUES      ( 48376903992,
               '2011-12-25' );
 
 /* INSERT QUERY NO: 32 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 40494998999,
               'Kelley',
               'Christopher',
@@ -697,13 +721,13 @@ VALUES      ( 40494998999,
               '2018-12-29' );
 
 /* INSERT QUERY NO: 33 */
-INSERT INTO doctors
-            (doctor_id,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Doctors
+            (Doctor_id,
+             First_name,
+             Last_name,
+             Department,
+             Current_hospital,
+             Start_date)
 VALUES      ( 21282854099,
               'Bray',
               'Simon',
@@ -711,31 +735,31 @@ VALUES      ( 21282854099,
               'University of Virginia Medical Center',
               '2006-04-18' );
 
-DROP TABLE IF EXISTS hospital_personals;
+DROP TABLE IF EXISTS Hospital_Personals;
 
-CREATE TABLE hospital_personals
+CREATE TABLE Hospital_Personals
   (
-     employee_id      VARCHAR(25) NOT NULL,
-     first_name       VARCHAR(25),
-     last_name        VARCHAR(25),
-     job_type         VARCHAR(25),
-     department       VARCHAR(25),
-     current_hospital VARCHAR(50),
-     start_date       DATE,
-     PRIMARY KEY (employee_id),
-     FOREIGN KEY (department) REFERENCES departments (department_name),
-     FOREIGN KEY (current_hospital) REFERENCES hospitals (hospital_name)
+     Employee_id      VARCHAR(25) NOT NULL,
+     First_name       VARCHAR(25),
+     Last_name        VARCHAR(25),
+     Job_type         VARCHAR(25),
+     Department       VARCHAR(25),
+     Current_hospital VARCHAR(50),
+     Start_date       DATE,
+     PRIMARY KEY (Employee_id),
+     FOREIGN KEY (Department) REFERENCES Departments (Department_name),
+     FOREIGN KEY (Current_hospital) REFERENCES Hospitals (Hospital_name)
   );
 
 /* INSERT QUERY NO: 1 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16601210667,
               'Nurse',
               'Malcolm',
@@ -745,14 +769,14 @@ VALUES      ( 16601210667,
               '2019-06-10' );
 
 /* INSERT QUERY NO: 2 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16310630476,
               'Resident',
               'Harding',
@@ -762,14 +786,14 @@ VALUES      ( 16310630476,
               '2011-07-01' );
 
 /* INSERT QUERY NO: 3 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16350305127,
               'Nurse',
               'Dieter',
@@ -779,14 +803,14 @@ VALUES      ( 16350305127,
               '2019-04-30' );
 
 /* INSERT QUERY NO: 4 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16870910343,
               'Resident',
               'Walker',
@@ -796,14 +820,14 @@ VALUES      ( 16870910343,
               '2006-02-27' );
 
 /* INSERT QUERY NO: 5 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16381108225,
               'Janitor',
               'Odette',
@@ -813,14 +837,14 @@ VALUES      ( 16381108225,
               '2002-06-03' );
 
 /* INSERT QUERY NO: 6 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16100406632,
               'Janitor',
               'Kaye',
@@ -830,14 +854,14 @@ VALUES      ( 16100406632,
               '2000-06-28' );
 
 /* INSERT QUERY NO: 7 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16940708599,
               'Resident',
               'Mollie',
@@ -847,14 +871,14 @@ VALUES      ( 16940708599,
               '2003-06-03' );
 
 /* INSERT QUERY NO: 8 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16850823158,
               'Resident',
               'Nathaniel',
@@ -864,14 +888,14 @@ VALUES      ( 16850823158,
               '2019-05-22' );
 
 /* INSERT QUERY NO: 9 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16160120487,
               'Nurse',
               'Ivana',
@@ -881,14 +905,14 @@ VALUES      ( 16160120487,
               '2019-06-22' );
 
 /* INSERT QUERY NO: 10 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16340212889,
               'Nurse',
               'Susan',
@@ -898,14 +922,14 @@ VALUES      ( 16340212889,
               '2013-06-10' );
 
 /* INSERT QUERY NO: 11 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16370503904,
               'Resident',
               'George',
@@ -915,14 +939,14 @@ VALUES      ( 16370503904,
               '2012-07-02' );
 
 /* INSERT QUERY NO: 12 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16971206596,
               'Janitor',
               'Chiquita',
@@ -932,14 +956,14 @@ VALUES      ( 16971206596,
               '2017-05-03' );
 
 /* INSERT QUERY NO: 13 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16390410825,
               'Nurse',
               'Morgan',
@@ -949,14 +973,14 @@ VALUES      ( 16390410825,
               '2010-11-11' );
 
 /* INSERT QUERY NO: 14 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16230206314,
               'Nurse',
               'Chanda',
@@ -966,14 +990,14 @@ VALUES      ( 16230206314,
               '2017-09-29' );
 
 /* INSERT QUERY NO: 15 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16811229862,
               'Nurse',
               'Imogene',
@@ -983,14 +1007,14 @@ VALUES      ( 16811229862,
               '2004-02-04' );
 
 /* INSERT QUERY NO: 16 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16260825816,
               'Nurse',
               'Quinlan',
@@ -1000,14 +1024,14 @@ VALUES      ( 16260825816,
               '2010-09-06' );
 
 /* INSERT QUERY NO: 17 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16700219725,
               'Nurse',
               'Arsenio',
@@ -1017,14 +1041,14 @@ VALUES      ( 16700219725,
               '2014-11-01' );
 
 /* INSERT QUERY NO: 18 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16131107919,
               'Nurse',
               'Hermione',
@@ -1034,14 +1058,14 @@ VALUES      ( 16131107919,
               '2014-10-23' );
 
 /* INSERT QUERY NO: 19 */
-INSERT INTO hospital_personals
-            (employee_id,
-             job_type,
-             first_name,
-             last_name,
-             department,
-             current_hospital,
-             start_date)
+INSERT INTO Hospital_Personals
+            (Employee_ID,
+             Job_type,
+             First_name,
+             Last_name,
+             Department,
+             Current_Hospital,
+             Start_date)
 VALUES      ( 16051006003,
               'Resident',
               'Stella',
@@ -1050,46 +1074,46 @@ VALUES      ( 16051006003,
               'Inova Fairfax Hospital',
               '2018-07-17' );
 
-DROP TABLE IF EXISTS patients;
+DROP TABLE IF EXISTS Patients;
 
-CREATE TABLE patients
+CREATE TABLE Patients
   (
-     first_name        VARCHAR(25),
-     last_name         VARCHAR(25),
-     patient_id        VARCHAR(25) NOT NULL,
-     department        VARCHAR(25),
-     blood_type        VARCHAR(3),
-     sex               CHAR(1),
-     age               INT,
-     weight            INT,
-     medical_condition VARCHAR(50),
-     current_hospital  VARCHAR(50),
-     previous_hospital VARCHAR(50),
-     admission_date    DATE,
-     discharge_date    DATE,
-     doctor_id         VARCHAR(25),
-     nurse_id          VARCHAR(25),
-     PRIMARY KEY (patient_id),
-     FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id),
-     FOREIGN KEY (nurse_id) REFERENCES hospital_personals(employee_id)
+     First_name        VARCHAR(25),
+     Last_name         VARCHAR(25),
+     Patient_id        VARCHAR(25) NOT NULL,
+     Department        VARCHAR(25),
+     Blood_type        VARCHAR(3),
+     Sex               CHAR(1),
+     Age               INT,
+     Weight            INT,
+     Medical_condition VARCHAR(50),
+     Current_hospital  VARCHAR(50),
+     Previous_hospital VARCHAR(50),
+     Admission_date    DATE,
+     Discharge_date    DATE,
+     Doctor_id         VARCHAR(25),
+     Nurse_id          VARCHAR(25),
+     PRIMARY KEY (Patient_id),
+     FOREIGN KEY (Doctor_id) REFERENCES Doctors(Doctor_id),
+     FOREIGN KEY (Nurse_id) REFERENCES Hospital_Personals(Employee_id)
   );
 
-INSERT INTO patients
-            (first_name,
-             last_name,
-             patient_id,
-             department,
-             blood_type,
-             sex,
-             age,
-             weight,
-             medical_condition,
-             current_hospital,
-             previous_hospital,
-             admission_date,
-             discharge_date,
-             doctor_id,
-             nurse_id)
+INSERT INTO Patients
+            (First_name,
+             Last_name,
+             Patient_id,
+             Department,
+             Blood_type,
+             Sex,
+             Age,
+             Weight,
+             Medical_condition,
+             Current_Hospital,
+             Previous_Hospital,
+             Admission_date,
+             Discharge_date,
+             Doctor_id,
+             Nurse_id)
 VALUES      ('Nevada',
              'Mcfadden',
              16350107551,
@@ -1391,28 +1415,28 @@ VALUES      ('Nevada',
              13454996899,
              16310630476);
 
-DROP TABLE IF EXISTS emergency_contacts;
+DROP TABLE IF EXISTS Emergency_Contacts;
 
-CREATE TABLE emergency_contacts
+CREATE TABLE Emergency_Contacts
   (
-     contact_id   VARCHAR(20),
-     patient_id   VARCHAR(25),
-     first_name   VARCHAR(25),
-     last_name    VARCHAR(25),
-     phone_number VARCHAR(12),
-     relation     VARCHAR(25),
-     PRIMARY KEY (contact_id),
-     FOREIGN KEY (patient_id) REFERENCES patients (patient_id)
+     Contact_id   VARCHAR(20),
+     Patient_id   VARCHAR(25),
+     First_name   VARCHAR(25),
+     Last_name    VARCHAR(25),
+     Phone_number VARCHAR(12),
+     Relation     VARCHAR(25),
+     PRIMARY KEY (Contact_id),
+     FOREIGN KEY (Patient_id) REFERENCES Patients (Patient_ID)
   );
 
 /* INSERT QUERY NO: 1 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 41552922899,
               16140913963,
               'John',
@@ -1421,13 +1445,13 @@ VALUES      ( 41552922899,
               'Family' );
 
 /* INSERT QUERY NO: 2 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 62843154399,
               16870704446,
               'Hashim',
@@ -1436,13 +1460,13 @@ VALUES      ( 62843154399,
               'Family' );
 
 /* INSERT QUERY NO: 3 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 50255209299,
               16971221180,
               'Maxine',
@@ -1451,13 +1475,13 @@ VALUES      ( 50255209299,
               'Family' );
 
 /* INSERT QUERY NO: 4 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 95504511399,
               16850326681,
               'Kamal',
@@ -1466,13 +1490,13 @@ VALUES      ( 95504511399,
               'Friend' );
 
 /* INSERT QUERY NO: 5 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 45226978199,
               16710901435,
               'Marny',
@@ -1481,13 +1505,13 @@ VALUES      ( 45226978199,
               'Friend' );
 
 /* INSERT QUERY NO: 6 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 95458702299,
               16120325865,
               'Zoe',
@@ -1496,13 +1520,13 @@ VALUES      ( 95458702299,
               'Family' );
 
 /* INSERT QUERY NO: 7 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 73578876299,
               16320519771,
               'Skyler',
@@ -1511,13 +1535,13 @@ VALUES      ( 73578876299,
               'Family' );
 
 /* INSERT QUERY NO: 8 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 40414938799,
               16421202190,
               'Lunea',
@@ -1526,13 +1550,13 @@ VALUES      ( 40414938799,
               'Friend' );
 
 /* INSERT QUERY NO: 9 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 95298995799,
               16191205791,
               'Angelica',
@@ -1541,13 +1565,13 @@ VALUES      ( 95298995799,
               'Friend' );
 
 /* INSERT QUERY NO: 10 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 8892643899,
               16121227112,
               'Talon',
@@ -1556,13 +1580,13 @@ VALUES      ( 8892643899,
               'Family' );
 
 /* INSERT QUERY NO: 11 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 87321918699,
               16750213451,
               'Olympia',
@@ -1571,13 +1595,13 @@ VALUES      ( 87321918699,
               'Friend' );
 
 /* INSERT QUERY NO: 12 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 16620864899,
               16210106161,
               'Lisandra',
@@ -1586,13 +1610,13 @@ VALUES      ( 16620864899,
               'Family' );
 
 /* INSERT QUERY NO: 13 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 62704545299,
               16340307517,
               'Winifred',
@@ -1601,13 +1625,13 @@ VALUES      ( 62704545299,
               'Family' );
 
 /* INSERT QUERY NO: 14 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 57237620999,
               16130823718,
               'Kimberley',
@@ -1616,13 +1640,13 @@ VALUES      ( 57237620999,
               'Friend' );
 
 /* INSERT QUERY NO: 15 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 61756394699,
               16120407539,
               'Petra',
@@ -1631,13 +1655,13 @@ VALUES      ( 61756394699,
               'Friend' );
 
 /* INSERT QUERY NO: 16 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 98671339599,
               16370930289,
               'Thomas',
@@ -1646,13 +1670,13 @@ VALUES      ( 98671339599,
               'Friend' );
 
 /* INSERT QUERY NO: 17 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 21813277399,
               16560529962,
               'Adam',
@@ -1661,13 +1685,13 @@ VALUES      ( 21813277399,
               'Family' );
 
 /* INSERT QUERY NO: 18 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 10597915899,
               16350107551,
               'Thaddeus',
@@ -1676,13 +1700,13 @@ VALUES      ( 10597915899,
               'Friend' );
 
 /* INSERT QUERY NO: 19 */
-INSERT INTO emergency_contacts
-            (contact_id,
-             patient_id,
-             first_name,
-             last_name,
-             phone_number,
-             relation)
+INSERT INTO Emergency_Contacts
+            (Contact_id,
+             Patient_id,
+             First_name,
+             Last_name,
+             Phone_number,
+             Relation)
 VALUES      ( 2533603199,
               16441008851,
               'Isaac',

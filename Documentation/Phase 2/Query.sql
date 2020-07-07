@@ -29,7 +29,7 @@ SELECT
 FROM
   Hospitals 
 WHERE
-  Available_OR_rooms >= 3 
+  Available_ORs >= 3 
   AND City = 'Richmond';
 /* QUERY 2 What is the address of the St. Marys hospital in Richmond Va
 */
