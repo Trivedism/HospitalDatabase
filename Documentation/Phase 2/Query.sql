@@ -117,7 +117,7 @@ FROM
 WHERE
   h.Employee_id = 16350305127 
   AND p.Patient_id = e.Patient_id;
-/* QUERY 9 */
+
 /* QUERY 10 How long did patient 16140913963 stay in the hospital*/
 SELECT
   CONCAT(DATEDIFF(Discharge_date, Admission_date), " " , "days") AS 'Duration' 
@@ -150,7 +150,7 @@ FROM
   Doctors 
 WHERE
   Doctor_ID = 82972840099;
-/* QUERY 13 What doctor did person X see at Hospital Y */
+/* QUERY 13 What doctor did person 16191205791 see at VCU Medical Center  */
 SELECT
   p.Doctor_id AS 'Doctor ID',
   CONCAT(d.First_name, ' ', d.Last_name) AS 'Doctor' 
@@ -161,7 +161,7 @@ WHERE
   p.Patient_ID = 16191205791 
   AND p.Current_hospital = 'VCU Medical Center' 
   AND p.Doctor_id = d.Doctor_id ;
-/* QUERY 14 How many patients are currently in the ICU at hospital X */
+/* QUERY 14 How many patients are currently in the ICU at Sentara Norfolk General Hospital*/
 SELECT
   COUNT(*) AS 'Number of Patients' 
 FROM
@@ -169,7 +169,7 @@ FROM
 WHERE
   Patients.Department = 'ICU' 
   AND Patients.Current_hospital = 'Sentara Norfolk General Hospital';
-/* QUERY 15 List all patients and dates that have been seen by doctor X */
+/* QUERY 15 List all patients and dates that have been seen by doctor 48376903992 */
 SELECT
   CONCAT(First_name, ' ', Last_name) AS 'Patient Name',
   Admission_date,
@@ -178,14 +178,14 @@ FROM
   Patients 
 WHERE
   Patients.Doctor_id = 48376903992;
-/* QUERY 16 How is person X related to the patient */
+/* QUERY 16 How is person 16850326681 related to the patient */
 SELECT
   Relation 
 FROM
   Emergency_Contacts 
 WHERE
   Emergency_Contacts.Patient_ID = 16850326681;
-/* QUERY 17 What is the average age of all patients over the weight of 200 pounds at Hospital X */
+/* QUERY 17 What is the average age of all patients over the weight of 200 pounds at Hospital Mary Washington Hospital */
 SELECT
   AVG(age) 
 FROM
@@ -193,7 +193,7 @@ FROM
 WHERE
   Patients.Weight > 200 
   AND Patients.Current_hospital = 'Mary Washington Hospital';
-/* QUERY 18 What is the discharge date of the most recent patient in department X at Hospital Y */
+/* QUERY 18 What is the discharge date of the most recent patient at Chippenham Hospital */
 SELECT
   Discharge_date 
 FROM
@@ -211,7 +211,7 @@ FROM
   Patients 
 WHERE
   Previous_hospital = 'Centra Lynchburg General Hospital';
-/* QUERY 20 */
+/* QUERY 20 How many Nurses work in the city of Richmond*/
 SELECT
   COUNT(hp.Employee_id) AS 'Number Of Nurses' 
 FROM
@@ -221,7 +221,7 @@ WHERE
   hp.Job_type = 'Nurse' 
   AND h.City = 'Richmond VA' 
   AND h.Hospital_name = hp.Curr ent_Hospital;
-/* View 1- Discharge  for Patient */
+/* View 1 Show the patient information after being checked out */
 CREATE VIEW Stay_status AS 
 SELECT
   Patient_id AS 'Patient ID',
@@ -309,7 +309,8 @@ FROM
   New_stay_status;
 END
 // DELIMITER ;
-/* View displays information on all working doctors*/
+
+/* View-3 displays information on all working doctors*/
 DROP VIEW IF EXISTS DoctorsData;
 CREATE VIEW DoctorsData AS 
 SELECT
