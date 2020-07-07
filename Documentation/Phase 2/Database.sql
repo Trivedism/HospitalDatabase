@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS hospital;
+DROP DATABASE IF EXISTS Hospital;
 
-CREATE DATABASE hospital;
+CREATE DATABASE Hospital;
 
-USE hospital;
+USE Hospital;
 
 DROP TABLE IF EXISTS departments;
 
