@@ -89,7 +89,7 @@ FROM
   Doctors d 
   LEFT OUTER JOIN
     Patients p 
-    ON p.Doctor_id = d.Doctor_id WH ERE d.Department = 'Emergency' 
+    ON p.Doctor_id = d.Doctor_id WHERE d.Department = 'Emergency' 
     AND d.Current_hospital = 'Mary Washington Hospital' 
 GROUP BY
   d.Doctor_id;
@@ -131,7 +131,7 @@ SELECT
   p.Age,
   CONCAT(d.First_name, ' ', d.Last_name) AS 'Doctor',
   CONCAT(h.First_name, ' ', h.Last_name) AS 'Nurse',
-  p.C urrent_hospital AS 'Current Hospital' 
+  p.Current_hospital AS 'Current Hospital' 
 FROM
   Patients p,
   Doctors d,
@@ -205,7 +205,7 @@ ORDER BY
   Discharge_date DESC LIMIT 1;
 /* QUERY 19 How many patients have  stayed at Centra Lynchburg General Hospital */
 SELECT
-  Count(*),
+  Count(*)
   AS 'Number Of Patients' 
 FROM
   Patients 
@@ -220,7 +220,8 @@ FROM
 WHERE
   hp.Job_type = 'Nurse' 
   AND h.City = 'Richmond VA' 
-  AND h.Hospital_name = hp.Curr ent_Hospital;
+  AND h.Hospital_name = hp.Current_Hospital;
+  
 /* View 1 Show the patient information after being checked out */
 CREATE VIEW Stay_status AS 
 SELECT
